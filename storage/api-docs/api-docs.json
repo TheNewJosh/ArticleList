@@ -1,0 +1,205 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "L5 OpenApi",
+        "description": "L5 Swagger OpenApi description",
+        "contact": {
+            "email": "darius@matulionis.lt"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/v1/articles": {
+            "get": {
+                "tags": [
+                    "Articles"
+                ],
+                "summary": "Article List",
+                "description": "This show the list of article .",
+                "operationId": "articlesList",
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Invalid status value"
+                    }
+                }
+            }
+        },
+        "/api/v1/articles/{id}": {
+            "get": {
+                "tags": [
+                    "Article Page"
+                ],
+                "summary": "Article Detail",
+                "description": "This show the detail of an article .",
+                "operationId": "articlePage",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "This show the detail of an article .",
+                        "required": true,
+                        "explode": true,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "integer"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Invalid status value"
+                    }
+                }
+            }
+        },
+        "/api/v1/articles/{id}/comment": {
+            "get": {
+                "tags": [
+                    "Article Comment"
+                ],
+                "summary": "Article Comment",
+                "description": "This show the Comment of an article .",
+                "operationId": "articleComment",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "This show the Comment of an article .",
+                        "required": true,
+                        "explode": true,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "integer"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Invalid status value"
+                    }
+                }
+            }
+        },
+        "/articlesCommentCreate": {
+            "post": {
+                "tags": [
+                    "Articles Comment Create"
+                ],
+                "summary": "Add a new pet to the store.",
+                "operationId": "articleCommentCreate",
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "properties": {
+                                    "article_id": {
+                                        "description": "Article ID",
+                                        "type": "integer"
+                                    },
+                                    "user_id": {
+                                        "description": "User Id",
+                                        "type": "integer"
+                                    },
+                                    "comment": {
+                                        "description": "Cpomment",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "405": {
+                        "description": "Invalid input"
+                    }
+                }
+            }
+        },
+        "/api/v1/articles/{id}/like": {
+            "get": {
+                "tags": [
+                    "Article like"
+                ],
+                "summary": "Article like",
+                "description": "This show the like of an article .",
+                "operationId": "articleLike",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "This show the like of an article .",
+                        "required": true,
+                        "explode": true,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "integer"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Invalid status value"
+                    }
+                }
+            }
+        },
+        "/api/v1/articles/{id}/view": {
+            "get": {
+                "tags": [
+                    "Article view"
+                ],
+                "summary": "Article view",
+                "description": "This show the view of an article .",
+                "operationId": "articleView",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "This show the view of an article .",
+                        "required": true,
+                        "explode": true,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "integer"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Invalid status value"
+                    }
+                }
+            }
+        }
+    }
+}
