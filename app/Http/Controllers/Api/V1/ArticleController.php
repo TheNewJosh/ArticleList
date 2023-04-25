@@ -241,7 +241,8 @@ class ArticleController extends BaseController
      */
     public function articleLike($id)
     {
-        $article = Article::find($id)->increment('likes');
+        $article = Article::find($id);
+        $article->increment('likes');
         $message = "Like Increased";
         return $this->sendResponse($article, $message, Response::HTTP_CREATED);
     }
@@ -278,7 +279,8 @@ class ArticleController extends BaseController
      */
     public function articleView($id)
     {
-        $article = Article::find($id)->increment('views');
+        $article = Article::find($id);
+        $article->increment('views');
         $message = "View Increased";
         return $this->sendResponse($article, $message, Response::HTTP_CREATED);
     }
